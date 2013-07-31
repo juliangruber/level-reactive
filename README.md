@@ -18,8 +18,8 @@ And this html template:
 
 ```html
 <div>
-  <p data-key="user"></p>
-  <div data-each="messages">
+  <p db-key="user"></p>
+  <div db-each="messages">
     <p data-text="body"></p>
   </div>
 </div>
