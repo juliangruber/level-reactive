@@ -25,14 +25,15 @@ And this html template:
 </div>
 ```
 
-Write this code to bind those two together:
+Tie them together by first initializing level-reactive with your db object,
+then calling `reactive` on your template.
 
 ```js
 var levelup = require('levelup');
 var leveljs = require('leveljs');
 
 var db = levelup('my-db', { db: leveljs });
-require('./reactive')(db);
+require('level-reactive')(db);
 
 function UserView (user) {
   this.user = user;
