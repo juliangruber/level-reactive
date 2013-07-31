@@ -7,7 +7,7 @@ Reactive templating for data stored in a LevelDB.
 
 Given this data stored in a leveldb:
 
-```json
+```
 user = juliangruber
 messages!1 = oh hai
 messages!2 = what's up
