@@ -1,0 +1,36 @@
+{
+  "name": "level-reactive",
+  "description": "Reactive templating of data stored in a LevelDB.",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/juliangruber/level-reactive.git"
+  },
+  "homepage": "https://github.com/juliangruber/level-reactive",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/*.js"
+  },
+  "dependencies": {
+    "through": "~2.3.4",
+    "level-live-stream": "~1.4.6"
+  },
+  "devDependencies": {
+    "tape": "*"
+  },
+  "keywords": [
+    "reactive",
+    "templating",
+    "template",
+    "leveldb",
+    "level",
+    "levelup",
+    "leveljs"
+  ],
+  "author": {
+    "name": "Julian Gruber",
+    "email": "mail@juliangruber.com",
+    "url": "http://juliangruber.com"
+  },
+  "license": "MIT"
+}
