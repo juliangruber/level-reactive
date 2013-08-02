@@ -24,8 +24,7 @@ And this html template:
 </div>
 ```
 
-Tie them together by first initializing level-reactive with your db object,
-then calling `reactive` on your template.
+Tie them together by calling `reactive` on your db, template and view object.
 
 ```js
 var reactive = require('level-reactive');
