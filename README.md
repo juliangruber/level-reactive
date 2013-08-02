@@ -29,11 +29,10 @@ Tie them together by calling `reactive` on your db, template and view object.
 ```js
 var reactive = require('level-reactive');
 var domify = require('domify');
-var tmpl = '<div>\n<p db-key.....';
-var levelup = require('levelup');
-var memdown = function (l) { return new (require('memdown'))(l) };
+var MemDB = require('memdb');
+var tmpl = '<div>\n<p db-key=...';
 
-var db = levelup('db', { db: memdown });
+var db = MemDB();
 
 function UserView (user) {
   this.user = user;
