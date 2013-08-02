@@ -1,4 +1,3 @@
-
 # level-reactive
 
 Reactive templating for data stored in a LevelDB.
@@ -51,7 +50,7 @@ And the resulting DOM will be:
 
 ```html
 <div>
-  <p data-key="user">juliangruber</p>
+  <p db-key="user">juliangruber</p>
   <div>
     <p data-text="body">oh hai</p>
     <p data-text="body">what's up</p>
