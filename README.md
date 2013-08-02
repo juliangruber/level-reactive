@@ -75,7 +75,6 @@ Except for the first argument the same as
 
 * Clean up templates.
 * Handle delete events in live streams.
-* Set up requirebin example.
 
 ## Installation
 
