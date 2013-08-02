@@ -9,14 +9,22 @@
   "homepage": "https://github.com/juliangruber/level-reactive",
   "main": "index.js",
   "scripts": {
-    "test": "tape test/*.js"
+    "test": "tape test/*.js",
+    "start": "beefy example/simple.js -- -t brfs"
   },
   "dependencies": {
     "through": "~2.3.4",
-    "level-live-stream": "~1.4.6"
+    "level-live-stream": "~1.4.6",
+    "reactive-component": "git://github.com/juliangruber/reactive.git#browserify"
   },
   "devDependencies": {
-    "tape": "*"
+    "tape": "*",
+    "domready": "~0.2.12",
+    "domify": "~1.0.0",
+    "memdown": "~0.2.1",
+    "brfs": "0.0.6",
+    "levelup": "~0.12.0",
+    "beefy": "~0.4.1"
   },
   "keywords": [
     "reactive",

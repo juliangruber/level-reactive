@@ -29,23 +29,21 @@ Tie them together by first initializing level-reactive with your db object,
 then calling `reactive` on your template.
 
 ```js
+var reactive = require('level-reactive');
+var domify = require('domify');
+var tmpl = '<div>\n<p db-key.....';
 var levelup = require('levelup');
-var leveljs = require('leveljs');
+var memdown = function (l) { return new (require('memdown'))(l) };
 
-var db = levelup('my-db', { db: leveljs });
-require('level-reactive')(db);
+var db = levelup('db', { db: memdown });
 
 function UserView (user) {
   this.user = user;
-  this.el = domify('...the template...');
-  reactive(this.el, user, this);
-
-  setInterval(function () {
-    db.put('user', Math.random().toString(16).slice(2));
-  }, 1000);
+  this.el = domify(tmpl);
+  reactive(db, this.el, user, this);
 }
 
-var user = new UserView();
+var view = new UserView({});
 document.body.appendChild(view.el);
 ```
 
@@ -69,21 +67,20 @@ db.put('user', 'mbalho');
 db.put('messages!4', 'oh!');
 ```
 
+## API
+
+### reactive(db, el, obj[, options])
+
+Except for the first argument the same as
+[component/reactive](https://github.com/component/reactive).
+
 ## TODO
 
-* Make reactive browserify compatible so it can just be required.
 * Clean up templates.
 * Handle delete events in live streams.
 * Set up requirebin example.
 
 ## Installation
-
-First source the standalone [reactive](https://github.com/component/reactive)
-build from [https://raw.github.com/component/reactive/master/reactive.js](https://raw.github.com/component/reactive/master/reactive.js):
-
-```js
-<script src="/path/to/reactive.js"></script>
-```
 
 With [npm](https://npmjs.org) do:
 
@@ -91,7 +88,7 @@ With [npm](https://npmjs.org) do:
 npm install level-reactive
 ```
 
-Then, bundle for the browser using
+Then bundle for the browser with
 [browserify](https://github.com/substack/node-browserify).
 
 ## License
