@@ -21,6 +21,10 @@ module.exports = function (db, el, obj, options) {
         });
   });
 
+  reactive.unsubscribe(function (obj, prop, fn) {
+    // TODO
+  });
+
   reactive.get(function (obj, prop) {
     var cached = cache[obj.key || prop]
     if (!cached) return '';
