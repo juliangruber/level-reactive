@@ -72,6 +72,10 @@ db.put('messages!4', 'oh!');
 Except for the first argument the same as
 [component/reactive](https://github.com/component/reactive).
 
+This will install
+[level-live-stream](https://github.com/dominictarr/level-live-stream) on the
+`source`, if you didn't already do that.
+
 ## TODO
 
 * Clean up templates.
