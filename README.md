@@ -17,7 +17,7 @@ And this html template:
 
 ```html
 <div>
-  <p db-key="user"></p>
+  <p data-key="user"></p>
   <div db-each="messages">
     <p data-text="body"></p>
   </div>

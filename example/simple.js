@@ -2,11 +2,10 @@ var reactive = require('..');
 var domify = require('domify');
 var ready = require('domready');
 var fs = require('fs');
-var levelup = require('levelup');
-var memdown = function (l) { return new (require('memdown'))(l) };
+var MemDB = require('memdb');
 var tmpl = fs.readFileSync(__dirname + '/template.html');
 
-var db = levelup('db', { db: memdown });
+var db = MemDB({ valueEncoding: 'json' });
 window.db = db;
 
 function UserView (user) {
@@ -16,7 +15,7 @@ function UserView (user) {
 
   var i = 0;
   (function write () {
-    db.put('user', Math.random().toString(16).slice(2));
+    db.put('name', Math.random().toString(16).slice(2));
     db.put('messages!' + i++, { body: (new Date).toString() });
     setTimeout(write, 1000);
   })();

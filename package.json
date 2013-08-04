@@ -21,10 +21,9 @@
     "tape": "*",
     "domready": "~0.2.12",
     "domify": "~1.0.0",
-    "memdown": "~0.2.1",
     "brfs": "0.0.6",
-    "levelup": "~0.12.0",
-    "beefy": "~0.4.1"
+    "beefy": "~0.4.1",
+    "memdb": "0.0.1"
   },
   "keywords": [
     "reactive",
