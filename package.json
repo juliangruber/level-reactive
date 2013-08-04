@@ -1,7 +1,7 @@
 {
   "name": "level-reactive",
   "description": "Reactive templating of data stored in a LevelDB.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "repository": {
     "type": "git",
     "url": "git://github.com/juliangruber/level-reactive.git"
