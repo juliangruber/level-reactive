@@ -1,6 +1,7 @@
 var liveStream = require('level-live-stream');
 var through = require('through');
 var reactive = require('reactive-component');
+var Emitter = require('events').EventEmitter;
 
 module.exports = function (db, el, obj, options) {
   if (!db.createLiveStream) liveStream.install(db);
@@ -29,20 +30,29 @@ module.exports = function (db, el, obj, options) {
       : value;
   });
 
-  var view = reactive(el, obj, options);
-
-  view.bind('db-each', function (el, group) {
+  reactive.bind('db-each', function (el, group) {
     el.removeAttribute('db-each');
     var container = el.parentNode;
     container.removeChild(el);
 
-    db.createLiveStream({ start: group + '!', end: group + '!~' })
-      .pipe(through(function (obj) {
-        var clone = el.cloneNode(true);
-        reactive(clone, obj);
-        container.appendChild(clone);
-      }));
+    var stream = db.createLiveStream({
+      start: group + '!',
+      end: group + '!~'
+    });
+    stream.on('data', function (obj) {
+      if (!cache[obj.key]) {
+        cache[obj.key] = { stream: new Emitter() };
+      }
+      cache[obj.key].value = obj.value;
+      cache[obj.key].stream.emit('data');
+
+      var clone = el.cloneNode(true);
+      reactive(clone, obj);
+      container.appendChild(clone);
+    });
   });
+
+  var view = reactive(el, obj, options);
 
   return view;
 }
