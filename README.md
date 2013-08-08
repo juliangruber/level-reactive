@@ -2,6 +2,11 @@
 
 Reactive templating for data stored in a LevelDB.
 
+**If you primarily display lists of data stored in LevelDBs,
+[level-list](https://github.com/juliangruber/level-list) is a way nicer abstraction
+and has [builtin support](https://github.com/juliangruber/level-list/blob/master/example/reactive.js)
+for reactive templates.**
+
 ## Usage
 
 Given this data stored in a leveldb:
