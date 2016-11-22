@@ -18,7 +18,7 @@
     "reactive-component": "git://github.com/juliangruber/reactive.git#browserify"
   },
   "devDependencies": {
-    "tape": "*",
+    "tape": ">=4.6.3",
     "domready": "~1.0.8",
     "domify": "~1.4.0",
     "memdown": "~1.2.2",
